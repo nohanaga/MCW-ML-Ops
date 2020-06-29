@@ -5,455 +5,455 @@ MLOps
 </div>
 
 <div class="MCWHeader2">
-Hands-on lab step-by-step
+ステップバイステップ式ハンズオン ラボ
 </div>
 
 <div class="MCWHeader3">
-June 2020
+2020年6月
 </div>
 
-Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
+このドキュメントに記載されている情報 (URL や他のインターネット Web サイト参照を含む) は、将来予告なしに変更することがあります。別途記載されていない場合、このソフトウェアおよび関連するドキュメントで使用している会社、組織、製品、ドメイン名、電子メール アドレス、ロゴ、人物、場所、出来事などの名称は架空のものです。実在する商品名、団体名、個人名などとは一切関係ありません。お客様ご自身の責任において、適用されるすべての著作権関連法規に従ったご使用をお願いいたします。著作権法による制限に関係なく、マイクロソフトの書面による許可なしに、このドキュメントの一部または全部を複製したり、検索システムに保存または登録したり、別の形式に変換したりすることは、手段、目的を問わず禁じられています。ここでいう手段とは、複写や記録など、電子的、または物理的なすべての手段を含みます。
 
-Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.
+マイクロソフトは、このドキュメントに記載されている内容に関し、特許、特許申請、商標、著作権、またはその他の無体財産権を有する場合があります。別途マイクロソフトのライセンス契約上に明示の規定のない限り、このドキュメントはこれらの特許、商標、著作権、またはその他の知的財産権に関する権利をお客様に許諾するものではありません。
 
-The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
+製造元名、製品名、URL は、情報提供のみを目的としており、これらの製造元またはマイクロソフトのテクノロジを搭載した製品の使用について、マイクロソフトは、明示的、黙示的、または法令によるいかなる表明も保証もいたしません。製造元または製品に対する言及は、マイクロソフトが当該製造元または製品を推奨していることを示唆するものではありません。掲載されているリンクは、外部サイトへのものである場合があります。これらのサイトはマイクロソフトの管理下にあるものではなく、リンク先のサイトのコンテンツ、リンク先のサイトに含まれているリンク、または当該サイトの変更や更新について、マイクロソフトは一切責任を負いません。リンク先のサイトから受信した Web キャストまたはその他の形式での通信について、マイクロソフトは責任を負いません。マイクロソフトは受講者の便宜を図る目的でのみ、これらのリンクを提供します。また、リンクの掲載は、マイクロソフトが当該サイトまたは当該サイトに掲載されている製品を推奨していることを示唆するものではありません。
 
 © 2020 Microsoft Corporation. All rights reserved.
 
-Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
+Microsoft および <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> (英語) に掲載されているその他の商標は、マイクロソフト グループ各社の商標です。その他すべての商標は、その所有者に帰属します。
 
-**Contents**
+**このドキュメントの内容**
 
 <!-- TOC -->
 
-- [MLOps hands-on lab step-by-step](#mlops-hands-on-lab-step-by-step)
-  - [Abstract and learning objectives](#abstract-and-learning-objectives)
-  - [Overview](#overview)
-  - [Solution architecture](#solution-architecture)
-  - [Requirements](#requirements)
+- [MLOps ステップバイステップ式ハンズオン ラボ](#MLOps-ステップバイステップ式ハンズオン-ラボ)
+  - [要約と学習目標](#要約と学習目標)
+  - [概要](#概要)
+  - [ソリューションのアーキテクチャ](#ソリューションのアーキテクチャ)
+  - [前提条件](#前提条件)
   - [Before the hands-on lab](#before-the-hands-on-lab)
-  - [Exercise 1: Creating and evaluating compliance classification models](#exercise-1-creating-and-evaluating-compliance-classification-models)
-    - [Task 1: Setup the notebooks environment](#task-1-setup-the-notebooks-environment)
-    - [Task 2: Create the classification model using a notebook](#task-2-create-the-classification-model-using-a-notebook)
-  - [Exercise 2: Registering the model](#exercise-2-registering-the-model)
-    - [Task 1: Register Model using Azure Machine Learning Python SDK](#task-1-register-model-using-azure-machine-learning-python-sdk)
-    - [Task 2: Register Model from Azure Machine Learning studio](#task-2-register-model-from-azure-machine-learning-studio)
-  - [Exercise 3: Setup New Project in Azure DevOps](#exercise-3-setup-new-project-in-azure-devops)
-    - [Task 1: Create New Project](#task-1-create-new-project)
-    - [Task 2: Import Quickstart code from a GitHub Repo](#task-2-import-quickstart-code-from-a-github-repo)
-    - [Task 3: Update the build YAML file](#task-3-update-the-build-yaml-file)
-    - [Task 4: Create new Service Connection](#task-4-create-new-service-connection)
-  - [Exercise 4: Setup and Run the Build Pipeline](#exercise-4-setup-and-run-the-build-pipeline)
-    - [Task 1: Setup Build Pipeline](#task-1-setup-build-pipeline)
-    - [Task 2: Run the Build Pipeline](#task-2-run-the-build-pipeline)
-    - [Task 3: Review Build Artifacts](#task-3-review-build-artifacts)
-    - [Task 4: Review Build Outputs](#task-4-review-build-outputs)
-  - [Exercise 5: Setup the Release Pipeline](#exercise-5-setup-the-release-pipeline)
-    - [Task 1: Create an Empty Job](#task-1-create-an-empty-job)
-    - [Task 2: Add Build Artifact](#task-2-add-build-artifact)
-    - [Task 3: Add Variables to Deploy and Test stage](#task-3-add-variables-to-deploy-and-test-stage)
-    - [Task 4: Setup Agent Pool for Deploy and Test stage](#task-4-setup-agent-pool-for-deploy-and-test-stage)
-    - [Task 5: Add Use Python Version task](#task-5-add-use-python-version-task)
-    - [Task 6: Add Install Requirements task](#task-6-add-install-requirements-task)
-    - [Task 7: Add Deploy and Test Webservice task](#task-7-add-deploy-and-test-webservice-task)
-    - [Task 8: Define Deployment Trigger](#task-8-define-deployment-trigger)
-    - [Task 9: Enable Continuous Deployment Trigger](#task-9-enable-continuous-deployment-trigger)
-    - [Task 10: Save the Release Pipeline](#task-10-save-the-release-pipeline)
-  - [Exercise 6: Test Build and Release Pipelines](#exercise-6-test-build-and-release-pipelines)
-    - [Task 1: Make Edits to Source Code](#task-1-make-edits-to-source-code)
-    - [Task 2: Monitor Build Pipeline](#task-2-monitor-build-pipeline)
-    - [Task 3: Monitor Release Pipeline](#task-3-monitor-release-pipeline)
-    - [Task 4: Review Release Pipeline Outputs](#task-4-review-release-pipeline-outputs)
-  - [Exercise 7: Testing the deployed solution](#exercise-7-testing-the-deployed-solution)
-    - [Task 1: Test the Deployment](#task-1-test-the-deployment)
-  - [Exercise 8: Examining deployed model performance](#exercise-8-examining-deployed-model-performance)
-    - [Task 1: Activate App Insights and data collection on the deployed model](#task-1-activate-app-insights-and-data-collection-on-the-deployed-model)
-    - [Task 2: Check Application Insights telemetry](#task-2-check-application-insights-telemetry)
-    - [Task 3: Check the data collected](#task-3-check-the-data-collected)
-  - [After the hands-on lab](#after-the-hands-on-lab)
-    - [Task 1: Clean up lab resources](#task-1-clean-up-lab-resources)
+  - [演習 1: コンプライアンス分類モデルの作成と評価](#演習-1-コンプライアンス分類モデルの作成と評価)
+    - [タスク 1: ノートブック環境をセットアップする](#タスク-1-ノートブック環境をセットアップする)
+    - [タスク 2: ノートブックを使用して分類モデルを作成する](#タスク-2-ノートブックを使用して分類モデルを作成する)
+  - [演習 2: モデルの登録](#演習-2-モデルの登録)
+    - [タスク 1: Azure Machine Learning Python SDK を使用してモデルを登録する](#タスク-1-Azure-Machine-Learning-Python-SDK-を使用してモデルを登録する)
+    - [タスク 2: Azure Machine Learning Studio からモデルを登録する](#タスク-2-Azure-Machine-Learning-Studio-からモデルを登録する)
+  - [演習 3: Azure DevOps で新しいプロジェクトをセットアップする](#演習-3-Azure-DevOps-で新しいプロジェクトをセットアップする)
+    - [タスク 1: 新しいプロジェクトを作成する](#タスク-1-新しいプロジェクトを作成する)
+    - [タスク 2: GitHub リポジトリからクイックスタートコードをインポートする](#タスク-2-GitHub-リポジトリからクイックスタートコードをインポートする)
+    - [タスク 3: ビルド YAML ファイルを更新する](#タスク-3-ビルド-YAML-ファイルを更新する)
+    - [タスク 4: 新しいサービス接続を作成する](#タスク-4-新しいサービス接続を作成する)
+  - [演習 4: ビルドパイプラインをセットアップして実行する](#演習-4-ビルドパイプラインをセットアップして実行する)
+    - [タスク 1: ビルドパイプラインのセットアップ](#タスク-1-ビルドパイプラインのセットアップ)
+    - [タスク 2: ビルドパイプラインの実行](#タスク-2-ビルドパイプラインの実行)
+    - [タスク 3: ビルド作成物の確認](#タスク-3-ビルド作成物の確認)
+    - [タスク 4: ビルド出力の確認](#タスク-4-ビルド出力の確認)
+  - [演習 5: リリースパイプラインを設定する](#演習-5-リリースパイプラインを設定する)
+    - [タスク 1: 空のジョブを作成する](#タスク-1-空のジョブを作成する)
+    - [タスク 2: ビルド作成物を追加](#タスク-2-ビルド作成物を追加)
+    - [タスク 3: Deploy and Test ステージに変数を追加する](#タスク-3-Deploy-and-Test-ステージに変数を追加する)
+    - [タスク 4: Deploy and Test ステージのエージェントプールのセットアップ](#タスク-4-Deploy-and-Test-ステージのエージェントプールのセットアップ)
+    - [タスク 5: Python バージョンの使用タスクの追加](#タスク-5-Python-バージョンの使用タスクの追加)
+    - [タスク 6: インストール要件タスクの追加](#タスク-6-インストール要件タスクの追加)
+    - [タスク 7: Webサービスの展開とテストタスクの追加](#タスク-7-Webサービスの展開とテストタスクの追加)
+    - [タスク 8: デプロイトリガーの定義](#タスク-8-デプロイトリガーの定義)
+    - [タスク 9: 継続的デプロイトリガーを有効にする](#タスク-9-継続的デプロイトリガーを有効にする)
+    - [タスク 10: リリースパイプラインを保存する](#タスク-10-リリースパイプラインを保存する)
+  - [演習 6: テストビルドおよびリリースパイプライン](#演習-6-テストビルドおよびリリースパイプライン)
+    - [タスク 1: ソースコードを編集する](#タスク-1-ソースコードを編集する)
+    - [タスク 2: ビルドパイプラインの監視](#タスク-2-ビルドパイプラインの監視)
+    - [タスク 3: リリースパイプラインの監視](#タスク-3-リリースパイプラインの監視)
+    - [タスク 4: リリースパイプライン出力の確認](#タスク-4-リリースパイプライン出力の確認)
+  - [演習 7: デプロイされたソリューションのテスト](#演習-7-デプロイされたソリューションのテスト)
+    - [タスク 1: デプロイをテストする](#タスク-1-デプロイをテストする)
+  - [演習 8: デプロイされたモデルのパフォーマンスを検証する](#演習-8-デプロイされたモデルのパフォーマンスを検証する)
+    - [タスク 1: デプロイされたモデルで App Insights とデータ収集をアクティブ化する](#タスク-1-デプロイされたモデルで-App-Insights-とデータ収集をアクティブ化する)
+    - [タスク 2: Application Insights のテレメトリを確認する](#タスク-2-Application-Insights-のテレメトリを確認する)
+    - [タスク 3: 収集したデータを確認する](#タスク-3-収集したデータを確認する)
+  - [ハンズオンラボの後](#ハンズオンラボの後)
+    - [タスク 1: ラボのリソースをクリーンアップする](#タスク-1-ラボのリソースをクリーンアップする)
 
 <!-- /TOC -->
 
-# MLOps hands-on lab step-by-step
+# MLOps ステップバイステップ式ハンズオン ラボ
 
-## Abstract and learning objectives
+## 要約と学習目標
 
-In this hands-on lab, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments, and most importantly, improves inferencing speed over the native model. You will build a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application, and inferencing web service. After a first successful deployment, you will make updates to both the model, the and web application, and execute the pipeline once to achieve an updated deployment. You will also learn how to monitor the model's performance after it is deployed, so Trey Research can be proactive with performance issues.
+このハンズオンラボでは、Trey Research 社がディープラーニングテクノロジーを活用して車両仕様のドキュメントをスキャンし、新しい規制のコンプライアンス問題を見つける方法を学びます。モデル形式を ONNX に標準化し、これが推論ランタイムコードを簡素化し、さまざまなモデルのプラグインを可能にし、幅広いランタイム環境をターゲットにする方法を観察します。最も重要なのは、ネイティブモデルより推論速度を向上させることです。DevOps パイプラインを構築して、モデルレジストリからの最新の最良のモデルの取得、Webアプリケーションのパッケージ化、Webアプリケーションのデプロイ、およびWebサービスの推論を調整します。最初のデプロイが成功した後、モデルおよびWebアプリケーションの両方を更新し、パイプラインを1回実行して、更新されたデプロイを実現します。また、モデルの展開後にモデルのパフォーマンスを監視する方法についても学習するため、Trey Research 社はパフォーマンスの問題に積極的に取り組むことができます。
 
-At the end of this hands-on lab, you will be better able to implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
+このハンズオンラボの最後に、モデルに依存するすべてのアプリケーションコンポーネントを含め、ディープラーニングモデルを完全に運用するエンドツーエンドのソリューションをより適切に実装できるようになります。
 
-## Overview
+## 概要
 
-Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. Trey Research has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
+Trey Research Inc. は、メーカーに革新的なソリューションを提供します。彼らは、平凡で時間のかかるプロセスの自動化から、製造クライアントに新しい機会を提供する最先端のアプローチを提供することまで、幅広い範囲を実行できるメーカーの問題の特定と解決を専門としています。Trey Research は何十年にもわたってデータサイエンスとアプリケーション開発を専門としており、これまでは個別のユニットでした。彼らは、データサイエンスとアプリ開発の間のその場限りの相乗効果によって生み出される価値を見てきましたが、2つのユニットを1つにまとめることでアプローチを正式化し、イノベーションを運用するための標準化されたプロセスに従うことで、より大きな長期的な価値を解き放ちたいと考えています。
 
-As their first effort of this combined initiative, they would like to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept (PoC), they would like to focus on component compliance. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing (NLP) techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components, which all of their manufacturing customers deal with. The component descriptions, which are free form text, are entered and managed via a web application. This web application will take new component descriptions entered by authorized technicians and label the component as compliant or non-compliant, based on the text.
+この複合イニシアチブの最初の取り組みとして、彼らは、ディープラーニングモデルのモデル作成とデプロイとともに、アプリケーションのライフサイクルのすべてのフェーズを網羅するディープラーニングを運用するためのプロセスを定義したいと考えています。この最初の概念実証（PoC）では、コンポーネントのコンプライアンスに焦点を当てたいと考えています。具体的には、ディープラーニングテクノロジーと自然言語処理（NLP）技術を活用して、車両仕様書をスキャンし、新しい規制へのコンプライアンスの問題を見つけようとしています。この最初のシナリオは自動車部品に焦点を当てていますが、このアプローチは、すべての製造業の顧客が扱う部品の在庫に関わるあらゆるシナリオに一般化できると考えています。部品の説明は、自由形式のテキストであり、ウェブアプリケーションを介して入力・管理されます。このWebアプリケーションは、認定された技術者によって入力された新しい部品の説明を受け取り、そのテキストに基づいて部品に適合または非適合のラベルを付けます。
 
-They want to ensure the overall process they create enables them to update both the underlying model and the web app in one, unified pipeline. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues.
+また、作成したプロセス全体で、基礎となるモデルと Web アプリの両方を 1 つの統一されたパイプラインで更新できるようにしたいと考えています。また、デプロイ後にモデルのパフォーマンスを監視できるようにして、パフォーマンスの問題に積極的に対応できるようにしたいと考えています。
 
-## Solution architecture
+## ソリューションのアーキテクチャ
 
 ![The lab solution architecture as described by the text that follows.](media/architecture-overview.png 'Solution Architecture')
 
-The overall approach used in this lab is to orchestrate continuous integration and continuous delivery Azure Pipelines from Azure DevOps. These pipelines are triggered by changes to artifacts that describe a machine learning pipeline, that is created with the Azure Machine Learning SDK. In the lab, you make a change to the model training script that executes the Azure Pipelines Build Pipeline, which trains the model and creates the container image. Then this triggers an Azure Pipelines Release pipeline that deploys the model as a web service to AKS, by using the Docker image that was created in the Build pipeline. Once in production, the scoring web service is monitored using a combination of Application Insights and Azure Storage.
+このラボで使用する全体的なアプローチは、Azure DevOps から継続的インテグレーションと継続的デリバリーの Azure パイプラインをオーケストレーションすることです。これらのパイプラインは、Azure Machine Learning SDK で作成された機械学習パイプラインを記述するアーティファクトへの変更によってトリガーされます。ラボでは、Azure Pipelines ビルドパイプラインを実行するモデルトレーニングスクリプトに変更を加えます。これにより、モデルがトレーニングされ、コンテナーイメージが作成されます。 次に、ビルドパイプラインで作成された Docker イメージを使用して、モデルを Web サービスとして AKS にデプロイする Azure パイプラインリリースパイプラインをトリガーします。本番環境に入ると、スコアリング Web サービスは、Application Insights と Azure Storage の組み合わせを使用して監視されます。
 
-## Requirements
+## 前提条件
 
-1. Microsoft Azure subscription must be pay-as-you-go or MSDN.
+1. Microsoft Azure サブスクリプションは、従量制または MSDN である必要があります。
 
-   - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
+   - 試用版サブスクリプションは機能しません。Azure リソースクォータの制限に関する問題が発生します。
 
-   - Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
+   - アクセスが1つのリソースグループに制限されているサブスクリプションは機能しません。複数のリソースグループをデプロイする機能が必要になります。
 
-2. An Azure DevOps account.
+2. Azure DevOps アカウント
 
 ## Before the hands-on lab
 
-Refer to the [Before the hands-on lab setup guide](./Before&#32;the&#32;HOL&#32;-&#32;MLOps.md) before continuing to the lab exercises.
+演習を続ける前に、[Before the hands-on lab setup guide](./Before&#32;the&#32;HOL&#32;-&#32;MLOps.md) を参照してください。
 
-## Exercise 1: Creating and evaluating compliance classification models
+## 演習 1: コンプライアンス分類モデルの作成と評価
 
-Duration: 40 minutes
+所要時間: 40分
 
-In this exercise, you create a model for classifying component text as compliant or non-compliant. This tutorial uses the cloud notebook server in your Azure Machine Learning workspace for an install-free and pre-configured experience, available in Azure Machine Learning studio.
+この演習では、コンポーネントテキストを準拠または非準拠に分類するためのモデルを作成します。このチュートリアルでは、Azure Machine Learning ワークスペースのクラウドノートブックサーバーを使用して、Azure Machine Learning studio で利用できるインストール不要の事前構成済みエクスペリエンスを実現します。
 
-> **Note:** The new [Azure Machine Learning studio](https://ml.azure.com) provides a new immersive experience for managing the end-to-end machine learning lifecycle. You can use it either by logging in directly to it or by selecting the **Try the new Azure Machine Learning studio, Launch now** option in the **Overview** section of your Azure Machine Learning workspace.
+> **Note:** 新しい [Azure Machine Learning studio](https://ml.azure.com) は、エンドツーエンドの機械学習ライフサイクルを管理するための新しい没入感のある体験を提供します。直接ログインするか、Azure Machine Learning ワークスペースの **概要** セクションにある **新しい Azure Machine Learning Studio を試して、今すぐ起動** オプションを選択して使用できます。
 
-### Task 1: Setup the notebooks environment
+### タスク 1: ノートブック環境をセットアップする
 
-1. Download the [**Deep Learning with Text.ipynb**](./notebooks/Deep&#32;Learning&#32;with&#32;Text.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this lab.
+1. GitHubで **Raw** ビューを選択し、**右クリック→名前を付けて保存**して、[**Deep Learning with Text.ipynb**](./notebooks/Deep&#32;Learning&#32;with&#32;Text.ipynb) ノートブックをコンピューターにダウンロードします。保存したファイルの拡張子が `.ipynb` であることを確認してください。これは、このラボで実行するためのステップノートです。
 
-2. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+2. [Azure Machine Learning studio](https://ml.azure.com) にサインインします。
 
-3. Select your subscription and the workspace you have available.
+3. サブスクリプションと使用可能なワークスペースを選択します。
 
-4. Select **Notebooks** on the left navigation pane.
+4. 左側のナビゲーションペインで **ノートブック** を選択します。
 
     ![In Azure Machine Learning Studio, Notebooks is selected from the left navigation pane.](media/notebook-00.png 'Open notebooks in Azure Machine Learning Studio')
 
-5. Select the folder under the **User files** section. It should be named as the currently logged user name. Select the option to **Create new folder** in the top menu.
+5. **ユーザーファイル** セクションでフォルダを選択します。現在ログインしているユーザー名として名前を付ける必要があります。上部のメニューで **新しいフォルダを作成する** オプションを選択します。
 
     ![On the Notebooks screen, the current user is selected beneath the User Files section, and the Create New Folder icon is highlighted in the top toolbar.](media/notebook-01.png 'Create new notebooks folder')
 
-6. Fill in the folder name: `MCW-MLOps`.
+6. フォルダ名を入力してください： `MCW-MLOps`.
 
-7. Select the **Upload files** option in the top menu.
+7. トップメニューの **ファイルのアップロード** オプションを選択します。
 
     ![On the Notebooks screen, beneath user files, the folder of the current user is expanded displaying the folder that was created in the previous step. The Upload files icon is highlighted in the top toolbar.](media/notebook-02.png 'Upload notebook to the workspace file share')
 
-8. Browse for the downloaded notebook, **Deep Learning with Text.ipynb** and then select **MCW-MLOps** folder as the target folder. Select **Upload**.
+8. ダウンロードしたノートブック、**Deep Learning with Text.ipynb** を参照し、ターゲットフォルダーとして **MCW-MLOps** フォルダーを選択します。次に、**アップロード** を選択します。
 
-9. Select the notebook. Select **+ New Compute** to create the compute instance VM.
+9. ノートブックを選択します。 **+新しいコンピューティング** を選択して、コンピューティングインスタンスVMを作成します。
 
     ![On the Notebooks screen, beneath user files, the folder of the current user is expanded along with the folder that was created in step 6. Inside this folder the Notebook that we uploaded in the previous step is displayed and is selected. On the Compute screen to the right, the + New Compute button is highlighted in the top taskbar.](media/notebook-03.png 'Create new compute instance')
 
-10. Provide the necessary data for creating a new compute instance to run on your notebooks.
+10. ノートブックで実行する新しいコンピューティングインスタンスを作成するために必要なデータを提供します。
 
-    a. Compute name: `mlops-compute`. When you create a VM, provide a name. The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
+    a. コンピューティング名： `mlops-compute`。VM を作成するときに、名前を指定します。名前は 2〜16 文字にする必要があります。有効な文字は、英数字、および - (ハイフン)であり、Azure サブスクリプション全体で一意である必要もあります。
 
-    b. Virtual machine type: CPU (Central Processing Unit)
+    b. 仮想マシンタイプ：CPU（中央処理装置）
 
-    c. Virtual machine size: **Standard_D3_v2**.
+    c. 仮想マシンサイズ: **Standard_D3_v2**.
 
-    d. Then select **Create**. It can take approximately 5 minutes to set up your VM.
+    d. 次に **作成** を選択します。VM のセットアップには約5分かかります。
 
     ![The New Compute Instance form is displayed populated with the preceding values.](media/notebook-04.png 'Configure the new compute instance')
 
-    > **Note**: Once the VM is available it will be displayed in the top toolbar.
+    > **Note**: VM が使用可能になると、上部のツールバーに表示されます。
 
-11. Having selected the uploaded **Deep Learning with Text.ipynb** notebook, select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
+11. アップロードした *Deep Learning with Text.ipynb** ノートブックを選択したら、 **Edit** ドロップダウンを選択し、 **Edit in Jupyter** を選択します。新しいブラウザウィンドウが開きます。
 
     ![On the Notebooks screen, the Deep Learning with Text Notebook is selected. On the Compute screen to the right, a drop down list shows the compute currently running for the notebook, and in the taskbar the Edit option is expanded with the options Edit in Jupyter and Edit in JupyterLab.](media/notebook-05.png 'Edit the notebook in Jupyter')
 
-12. Select **Python 3.6 - Azure ML** if you are asked to select a Kernel.
+12. カーネルの選択を求められたら、**Python 3.6-Azure ML** を選択します。
 
     ![A Kernel not found dialog is displayed with Python 3.6 - Azure ML selected from a drop down list. A Set Kernel button is available to confirm the kernel selection.](media/notebook-06.png 'Select Kernel version')
 
-### Task 2: Create the classification model using a notebook
+### タスク 2: ノートブックを使用して分類モデルを作成する
 
-1. Follow the instructions within the notebook to complete the lab.
+1. ノートブック内の指示に従って、ラボを完了してください。
 
-2. Back to the [Azure Machine Learning Studio](https://ml.azure.com), in **Notebooks**, under the **MCW-MLOps** folder, navigate to the **model** folder and download the **model.onnx** file to your local disk. We will use the downloaded model file in the next exercise.
+2. [Azure Machine Learning Studio](https://ml.azure.com) に戻り、**Notebooks** の ** MCW-MLOps** フォルダーの下で、**model** フォルダーに移動してダウンロードします。**model.onnx** ファイルをローカルディスクにコピーします。次の演習では、ダウンロードしたモデルファイルを使用します。
 
-   > **Note**: If the downloaded file name is changed to **utf-8 model.onnx** or **notebooks_model_model.onnx**, then rename the file back to `model.onnx`.
+   > **Note**: ダウンロードしたファイル名を **utf-8 model.onnx** または **notebooks_model_model.onnx** に変更した場合は、ファイルの名前を `model.onnx`に戻します。
 
-   > **Note**: The **model.onnx** file is generated during the execution of the notebook at the previous step (step 1). When running the notebook, make sure the execution is successful, and the file is correctly created.
+   > **Note**: **model.onnx** ファイルは、前のステップ（ステップ1）でのノートブックの実行中に生成されます。ノートブックを実行するときは、実行が成功し、ファイルが正しく作成されていることを確認してください。
 
-## Exercise 2: Registering the model
+## 演習 2: モデルの登録
 
-Duration: 15 minutes
+所要時間: 15分
 
-In this exercise, you explore the approaches you can take to managing the model versions, their association with Experiment Runs, and how you can retrieve the models both programmatically and via the [Azure Machine Learning studio](https://ml.azure.com).
+この演習では、モデルバージョンを管理するためのアプローチ、実験実行との関連付け、プログラムおよび　[Azure Machine Learning studio](https://ml.azure.com)　経由でモデルを取得する方法について学びます。
 
-### Task 1: Register Model using Azure Machine Learning Python SDK
+### タスク 1: Azure Machine Learning Python SDK を使用してモデルを登録する
 
-1. Download the [**Register Model.ipynb**](./notebooks/Register&#32;Model.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this exercise.
+1. GitHubで **Raw** ビューを選択して [**Register Model.ipynb**](./notebooks/Register&#32;Model.ipynb) ノートブックをコンピューターにダウンロードし、**右クリック→名前を付けて保存** します。保存したファイルの拡張子が `.ipynb`であることを確認してください。これは、この演習で実行するステップバイノートブックです。
 
-2. In the Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
+2. スタジオで、 **ノートブック** に移動し、上部のメニューで **ファイルをアップロード** オプションを選択します。
 
-3. Browse your local computer for the downloaded notebook, **Register Model.ipynb** and then select **MCW-MLOps** as the target folder. Select **Upload**.
+3. ローカルコンピューターを参照して、ダウンロードしたノートブックの **Register Model.ipynb** を探し、ターゲットフォルダーとして **MCW-MLOps** を選択します。次に、**アップロード** を選択します。
 
-4. Select the notebook `Register Model.ipynb`. On the top bar, select the **mlops-compute** compute instance to use to run the notebook. Select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
+4. ノートブック `Register Model.ipynb` を選択します。上部のバーで、ノートブックの実行に使用する **mlops-compute** コンピューティングインスタンスを選択します。**編集** ドロップダウンを選択し、**Jupyterで編集** を選択します。すると新しいブラウザウィンドウが開きます。
 
-5. Follow the instructions within the notebook to complete the lab.
+5. ノートブック内の指示に従って、ラボを完了してください。
 
-6. Navigate back to the [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook. Open your **Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
+6. [Azure Machine Learning studio](https://ml.azure.com) に直接移動するか、[Azure ポータル](https://portal.azure.com) 経由で移動します。ノートブックから作成した Azure Machine Learning ワークスペースを必ず選択してください。**Models** セクションを開き、登録されているモデルの **バージョン1** を確認します： `compliance-classifier`。
 
     ![In Azure Machine Learning Studio, from the left menu, Models is selected. In the Model List, the compliance-classifier with the version of 1 is highlighted.](media/model-registry-01.png 'Registered Model: compliance-classifier')
 
-### Task 2: Register Model from Azure Machine Learning studio
+### タスク 2: Azure Machine Learning Studio からモデルを登録する
 
-1. In  [Azure Machine Learning studio](https://ml.azure.com), open your **Models** section and select **+ Register model**.
+1. [Azure Machine Learning studio](https://ml.azure.com) で、 **モデル** セクションを開き、**+モデルの登録** を選択します。
 
     ![In Auzre Machine Learning Studio, Models is selected in the left menu. In the taskbar of the Model list, the + Register Model button is selected.](media/model-registry-02.png 'Register Model in Azure Machine Learning studio')
   
-2. Provide the following input to the **Register a model** dialog, and then select **Register**.
+2. **モデルの登録** ダイアログに次の入力を入力し、 **登録** を選択します。
 
-    a. Name: `compliance-classifier`
+    a. 名前: `compliance-classifier`
 
-    b. Description: `Deep learning model to classify the descriptions of car components as compliant or non-compliant.`
+    b. 説明: `自動車コンポーネントの説明を準拠または非準拠として分類するためのディープラーニングモデル。`
 
-    c. Model Framework: **TensorFlow**
+    c. モデルフレームワーク: **TensorFlow**
 
-    d. Model Framework Version: `2.0`
+    d. モデルフレームワークバージョン: `2.0`
 
-    e. Model file: Select the `model.onnx` file from your local disk.
+    e. モデルファイル: ローカルディスクから `model.onnx` ファイルを選択します。
 
     ![The Register a Model form is displayed populated with the preceding values.](media/model-registry-03.png 'Register a model Dialog')
 
-3. Navigate to your **Models** section, and observe the **version 2** of the registered model: **compliance-classifier**.
+3. **Models** セクションに移動し、登録済みモデル **compliance-classifier** が **バージョン2** であることを確認します。
 
     ![The Model list is displayed showing two rows containing both versions of the compliance-classifier model. Version 2 of the compliance-classifier model is highlighted in the list.](media/model-registry-04.png 'Registered Model: compliance-classifier version 2')
 
-## Exercise 3: Setup New Project in Azure DevOps
+## 演習 3: Azure DevOps で新しいプロジェクトをセットアップする
 
-Duration: 20 minutes
+所要時間: 20分
 
-### Task 1: Create New Project
+### タスク 1: 新しいプロジェクトを作成する
 
-1. Sign in to [Azure DevOps](http://dev.azure.com).
+1. [Azure DevOps](http://dev.azure.com) にサインインします。
 
-2. Select **+ New project**.
+2. **+ 新規プロジェクト** を選択します。
 
     ![In the Azure DevOps screen, the + New project button is selected.](media/devops-project-01.png 'Create new project')
 
-3. Provide Project Name: `mlops-quickstart` and select **Create**.
+3. プロジェクト名： `mlops-quickstart`を入力し、**作成** を選択します。
 
     ![The Create new project dialog is shown populated with the value above. Visibility is set to Private, and the Create button is highlighted.](media/devops-project-02.png 'Create New Project Dialog')
 
-### Task 2: Import Quickstart code from a GitHub Repo
+### タスク 2: GitHub リポジトリからクイックスタートコードをインポートする
 
-1. Within the new project:
+1. 新しいプロジェクト内：
 
-   a. Select **Repos** from left navigation bar.
+   a. 左側のナビゲーションバーから **Repos** を選択します。
 
-   b. Select **Import** from the content section.
+   b. コンテンツセクションから **インポート** を選択します。
 
     ![In Azure DevOps, Repos is selected from the left menu. In the mlops-quickstart screen the Import button is selected in the Import a repository section.](media/devops-project-03.png 'Azure DevOps Repos')
 
-2. Provide the following GitHub URL: `https://github.com/solliancenet/mcw-mlops-starter-v2` and select **Import**. This should import the code required for the quickstart.
+2. 次の GitHub URL を指定します： `https://github.com/solliancenet/mcw-mlops-starter-v2`を選択し、 **インポート** を選択します。これにより、クイックスタートに必要なコードがインポートされます。
 
     ![In the Import a Git repository dialog, the Clone URL is populated with the value indicated above and the Import button is selected.](media/devops-project-04.png 'Import a Git repository dialog')
 
-    > **Note**: If you receive an error while importing the repository, please disable the preview feature **New Repos landing pages** and import the GitHub repository from the old UI, as shown in steps #3, #4, and #5 below.
+    > **Note**: リポジトリのインポート中にエラーが発生した場合は、プレビュー機能→**新しいReposランディングページ** を無効にして、GitHub リポジトリを古い UI からインポートしてください（以下のステップ#3、#4、および#5を参照）。
 
-3. [Optional] Select **Account settings, Preview features**.
+3. [オプション] **アカウント設定、プレビュー機能** を選択します。
 
     ![On the mlops-quickstart repo page, Settings is expanded in the taskbar and the Preview features item is highlighted.](media/preview_features-01.png 'Preview features')
 
-4. [Optional] From the list of preview features, disable the preview feature **New Repos landing pages**.
+4. [オプション] プレビュー機能のリストから、プレビュー機能 **新しいReposランディングページ** を無効にします。
 
    ![A list of preview features is displayed highlighting the New Repos landing pages features.](media/preview_features-02.png 'Disable New Repos landing pages')
 
-5. [Optional] Repeat Step #1 above to import the GitHub repository from the old UI.
+5. [オプション] 上記の手順1を繰り返して、古い UI から GitHub リポジトリをインポートします。
 
-### Task 3: Update the build YAML file
+### タスク 3: ビルド YAML ファイルを更新する
 
-1. Select and open the **azure-pipelines.yml** file.
+1. **azure-pipelines.yml** ファイルを選択して開きます。
 
-2. Select **Edit** and update the following variables: **resourcegroup**, and **workspace**. If you are using your own Azure subscription, please provide names to use. If an environment is provided to you, be sure to replace XXXXX in the values below with your unique identifier.
+2.  **編集** を選択し、次の変数を更新します：**resourcegroup**、および **workspace**。独自の Azure サブスクリプションを使用している場合は、使用する名前を指定してください。環境が提供されている場合は、以下の値のXXXXXを一意の識別子に置き換えてください。
 
     ![In the left menu, beneath Repos, the Files item is selected. In the files list, azure-pipelines.yml is selected. In the editor pane, the contents of the file are displayed with the resource group and workspace variables highlighted. The Edit button is selected in the top toolbar.](media/devops-build-pipeline-01.png 'Edit Build YAML file')
 
-3. Select **Commit** to save your changes and select **Commit** again in the commit properties dialog.
+3.  **コミット** を選択して変更を保存し、[コミットのプロパティ]ダイアログでもう一度 **コミット** を選択します。
 
     ![The content of azure-pipelines.yml is updated and the Commit button is selected in the top taskbar.](media/devops-build-pipeline-02.png 'Commit Build YAML file')
 
-### Task 4: Create new Service Connection
+### タスク 4: 新しいサービス接続を作成する
 
-1. From the left navigation, select **Project settings** and then select **Service connections**.
+1. 左側のナビゲーションから、 **プロジェクト設定** を選択し、 **サービス接続** を選択します。
 
     ![In the left menu, Project settings is selected. In the Project Settings list, Service connections is selected. In the Create your first service connection screen, the Create service connection button is selected.](media/devops-build-pipeline-03.png 'Service Connections')
 
-2. Select **Create service connection**, select **Azure Resource Manager**, and then select **Next**.
+2.  **サービス接続の作成** 、**Azure リソースマネージャー**、**次へ** の順に選択します。
 
     ![In the New service connection dialog, Azure Resource Manager is selected from the list. The Next button is selected.](media/devops-build-pipeline-04.png 'Azure Resource Manager')
 
-3. Select **Service principal (automatic)** and then select **Next**.
+3.  **サービスプリンシパル（自動）** を選択して、 **次へ** を選択します。
 
     ![In the New service connection dialog, under Authentication method, Service principal (automatic) is selected. The Next button is selected.](media/devops-build-pipeline-05.png 'Service principal authentication')
 
-4. Provide the following information in the **New Azure service connection** dialog box and then select **Save**:
+4. **新しいAzureサービス接続** ダイアログボックスで次の情報を入力し、**保存** を選択します。
 
-    a. **Scope level**: **Machine Learning Workspace**
+    a. **スコープレベル**: **Machine Learning Workspace**
 
-    b. **Subscription**: Select the Azure subscription to use.
+    b. **サブスクリプション**: 使用するAzureサブスクリプションを選択します。
 
-    > **Note**: It might take up to 30 seconds for the **Subscription** dropdown to be populated with available subscriptions, depending on the number of different subscriptions your account has access to.
+    > **Note**: アカウントがアクセスできるさまざまなサブスクリプションの数によっては、**サブスクリプション** ドロップダウンに利用可能なサブスクリプションが表示されるまでに最大30秒かかる場合があります。
 
-    c. **Resource group**: This value should match the value you provided in the **azure-pipelines.yml** file.
+    c. **リソースグループ**: この値は、**azure-pipelines.yml** ファイルで指定した値と一致する必要があります。
 
-    d. **Machine Learning Workspace**: This value should match the value you provided in the **azure-pipelines.yml** file.
+    d. **Machine Learning Workspace**: この値は、**azure-pipelines.yml** ファイルで指定した値と一致する必要があります。
 
-    e. **Service connection name**: `quick-starts-sc`
+    e. **サービス接続名**: `quick-starts-sc`
 
-    f. **Security**: Grant access permission to all pipelines is checked.
+    f. **セキュリティ**: すべてのパイプラインへのアクセス許可の付与がチェックされています。
 
     ![The New Azure service connection form is populated with the values outlined above. The Save button is selected.](media/devops-build-pipeline-06.png 'Add an Azure Resource Manager service connection dialog')
 
-    >**Note**: If you are unable to select your **Machine Learning Workspace**, do the following steps:
+    >**Note**: **Machine Learning Workspace** を選択できない場合は、次の手順を実行します。
 
-    a. Quit the `New Azure service connection` dialog.
+    a. [新しい Azure サービス接続]ダイアログを終了します。
     
-    b. Refresh or reload the web browser.
+    b. Web ブラウザーを更新または再ロードします。
     
-    c. Repeat steps 1-3 above.
+    c. 上記の手順1〜3を繰り返します。
     
-    d. In step 4, change the `Scope level` to **Subscription** and then select your **Resource group**.
+    d. ステップ4で、[スコープレベル] を **サブスクリプション** に変更し、**リソースグループ** を選択します。
     
-    e. Please remember to name your service connection as `quick-starts-sc`.
+    e. サービス接続には `quick-starts-sc` という名前を付けてください。
     
-    f. Grant access permission to all pipelines.
+    f. すべてのパイプラインにアクセス許可を付与します。
 
-## Exercise 4: Setup and Run the Build Pipeline
+## 演習 4: ビルドパイプラインをセットアップして実行する
 
-Duration: 30 minutes
+所要時間: 30分
 
-### Task 1: Setup Build Pipeline
+### タスク 1: ビルドパイプラインのセットアップ
 
-1. From left navigation select **Pipelines, Pipelines** and then select **Create pipeline**.
+1. 左側のナビゲーションから **パイプライン→パイプライン** を選択し、**パイプラインを作成** を選択します。
 
     ![In the left menu, the Pipelines item is expanded with the Pipelines item selected. In the content pane, the Create pipeline button is highlighted.](media/devops-build-pipeline-07.png 'Create Build Pipeline')
 
-2. Select **Azure Repos Git** as your code repository.
+2. コードリポジトリとして　**Azure Repos Git** を選択します。
 
     ![On the Connect tab of your pipeline screen, Azure Repos Git is selected beneath the Where is your code? prompt.](media/devops-build-pipeline-08.png 'Repository Source')
 
-3. Select **mlops-quickstart** as your repository.
+3. リポジトリとして **mlops-quickstart** を選択します。
 
     ![On the Select tab of your pipeline screen, beneath the Select a repository section, the mlops-quickstart repository is selected.](media/devops-build-pipeline-09.png 'Select Repository')
 
-4. Review the YAML file.
+4. YAML ファイルを確認します。
 
-    The build pipeline has four key steps:
+    ビルドパイプラインには以下の4つの重要なステップがあります。
 
-    a. Attach folder to workspace and experiment. This command creates the **.azureml** subdirectory that contains a **config.json** file that is used to communicate with your Azure Machine Learning workspace. All subsequent steps rely on the **config.json** file to instantiate the workspace object.
+    a. ワークスペースにフォルダーを添付して実験します。このコマンドは、Azure Machine Learning ワークスペースとの通信に使用される **config.json** ファイルを含む **azureml** サブディレクトリを作成します。以降のすべての手順では、**config.json** ファイルを使用してワークスペースオブジェクトをインスタンス化します。
 
-    b. Create the AML Compute target to run your master pipeline for model training and model evaluation.
+    b. AML Compute ターゲットを作成して、モデルトレーニングとモデル評価のためにマスターパイプラインを実行します。
 
-    c. Run the master pipeline. The master pipeline has two steps: (1) Train the machine learning model, and (2) Evaluate the trained machine learning model. The evaluation step evaluates if the new model performance is better than the currently deployed model. If the new model performance is improved, the evaluate step will create a new Image for deployment. The results of the evaluation step will be saved in a file called **eval_info.json** that will be made available for the release pipeline. You can review the code for the master pipeline and its steps in **aml_service/pipelines_master.py**, **scripts/train.py**, and **scripts/evaluate.py**.
+    c. マスターパイプラインを実行します。マスターパイプラインには2つのステップがあります。（1）機械学習モデルをトレーニングし、（2）トレーニングされた機械学習モデルを評価します。評価ステップでは、新しいモデルのパフォーマンスが現在デプロイされているモデルよりも優れているかどうかを評価します。新しいモデルのパフォーマンスが向上した場合、評価手順では、展開用の新しいイメージを作成します。評価ステップの結果は、**eval_info.json** というファイルに保存され、リリースパイプラインで使用できるようになります。マスターパイプラインのコードとそのステップは、**aml_service/pipelines_master.py**、**scripts/train.py**、および **scripts/evaluate.py** で確認できます。
 
-    d. Publish the build artifacts. The **snapshot of the repository**, **config.json**, and **eval_info.json** files are published as build artifacts and thus can be made available for the release pipeline.
+    d. ビルド作成物を公開します。**リポジトリのスナップショット**、**config.json**、および **eval_info.json** ファイルはビルド作成物として公開されるため、リリースパイプラインで利用できます。
 
     ![On the Review tab of your pipeline screen, the contents of azure-pipelines.yml is displayed.](media/devops-build-pipeline-10.png 'Build pipeline YAML')
 
-### Task 2: Run the Build Pipeline
+### タスク 2: ビルドパイプラインの実行
 
-1. Select **Run** to start running your build pipeline.
+1. **実行** を選択して、ビルドパイプラインの実行を開始します。
 
     ![On the Review tab of your pipeline screen, the contents of azure-pipelines.yml is displayed. The Run button is selected from the top taskbar.](media/devops-build-pipeline-11.png 'Run Build Pipeline')
 
-2. Monitor the build run. The build pipeline, for the first run, will take around 25 minutes to run.
+2. ビルドの実行を監視します。最初の実行のビルドパイプラインの実行には、約25分かかります。
 
     ![A build pipeline run summary screen is displayed indicating it was manually triggered. A single job is selected in the Jobs section with a status of Success.](media/devops-build-pipeline-12.png 'Monitor Build Pipeline')
 
-3. Select **Job** to monitor the detailed status of the build pipeline execution.
+3. **ジョブ** を選択して、ビルドパイプラインの実行の詳細なステータスを監視します。
 
     ![In the Jobs screen, the Job that was selected in the previous step is expanded displaying multiple steps. To the right a summary of the run is displayed.](media/devops-build-pipeline-13.png 'Monitor Build Pipeline Details')
 
-### Task 3: Review Build Artifacts
+### タスク 3: ビルド作成物の確認
 
-1. The build will publish an artifact named `devops-for-ai`. Select **1 published** to review the artifact contents.
+1. ビルドは `devops-for-ai` という名前の作成物を公開します。作成物の内容を確認するには、**1件公開済み** を選択します。
 
     ![On the build pipeline run summary, in the table outlining the manual run, the 1 published beneath the related column is selected.](media/devops-build-pipeline-14.png 'Build Artifacts')
 
-2. Select **outputs, eval_info.json**, and then select the download arrow. The `eval_info.json` is the output from the *model evaluation* step. The information from the evaluation step will be used in the release pipeline to deploy the model. Select the back arrow to return to the previous screen.
+2. **outputs→eval_info.json** を選択し、ダウンロード矢印を選択します。`eval_info.json` は **モデル評価** ステップからの出力です。評価ステップからの情報は、リリースパイプラインでモデルをデプロイするために使用されます。前の画面に戻るには、戻る矢印を選択します。
 
     ![On the Artifacts screen, a list of files are displayed. The outputs folder is expanded and the eval-info.json file download button is selected. The back arrow is selected a the top of the screen to navigate back to the previous page.](media/devops-build-pipeline-15.png 'Download JSON file')
 
-3. Open the **eval_info.json** in a json viewer or a text editor and observe the information. The json output contains information such as if the model passed the evaluation step (**deploy_model**: **true** or **false**), and the name and id of the created image (**image_name** and **image_id**) to deploy.
+3. **eval_info.json** を json ビューアまたはテキストエディタで開き、情報を確認します。json の出力には、モデルが評価ステップに合格したかどうか（**deploy_model**：**true** または **false**）、作成されたイメージの名前とID（**image_name** および **image_id**）をデプロイします。
 
     ![The contents of the eval_info.json file is displayed in Visual Studio.](media/devops-build-pipeline-16.png 'Eval Info JSON File')
 
-### Task 4: Review Build Outputs
+### タスク 4: ビルド出力の確認
 
-1. Log in to [Azure Machine Learning studio](https://ml.azure.com) either directly or via the [Azure Portal](https://portal.azure.com). Make sure you select the Azure Machine Learning workspace that you created from the notebook earlier. Open your **Models** section, and observe the versions of the registered model: **compliance-classifier**. The latest version is the one registered by the build pipeline you ran in the previous task.
+1. [Azure Machine Learning studio](https://ml.azure.com) に直接または [Azureポータル](https://portal.azure.com) からログインします。以前にノートブックから作成した Azure Machine Learning ワークスペースを必ず選択してください。**Models** セクションを開き、登録されている **compliance-classifier** モデルのバージョンを確認します。最新バージョンは、前のタスクで実行したビルドパイプラインによって登録されたバージョンです。
 
     ![In Azure Machine Learning Studio, models is selected in the left menu. A list of multiple versions of the compliance-classifier model is displayed in the Model list table with the largest version of the model highlighted in the table.](media/devops-build-outputs-01.png 'Registered Models in Azure Machine Learning studio')
 
-2. Select the latest version of your model to review its properties. The **build_number** tag links the registered model to the Azure DevOps build that generated it.
+2. モデルの最新バージョンを選択して、そのプロパティを確認します。**build_number** タグは、登録されたモデルを、それを生成した Azure DevOps ビルドにリンクします。
 
     ![The model screen for the latest version of the compliance-classifier is displayed with the Build_Number tag highlighted.](!media/../media/devops-build-outputs-02.png 'Registered model details and Build_Number tag')
 
-3. Open your **Datasets** section and observe the versions of the registered dataset: **connected_car_components**. The latest version is the one registered by the build pipeline you have run in the previous task.
+3. **Datasets** セクションを開き、登録されているデータセットのバージョンを確認します：**connected_car_components**。最新バージョンは、前のタスクで実行したビルドパイプラインによって登録されたバージョンです。
 
     ![In Azure Machine Learning Studio, Datasets is selected from the left menu. The Datasets screen displays a list of datasets on the Registered datasets tab. The connected_car_components dataset is selected in the table with its tag indicating the build number matching the value from the previous step.](media/devops-build-outputs-03.png 'Registered Datasets in Azure Machine Learning studio')
 
-4. Select the latest version of your dataset to review its properties. Notice the **build_number** tag that links the dataset version to the Azure DevOps build that generated it.
+4. データセットの最新バージョンを選択して、そのプロパティを確認します。データセットバージョンを、それを生成した Azure DevOps ビルドにリンクする **build_number** タグに注意してください。
 
     ![The registered dataset version properties screen is displayed with a tag that indicates the build_number.](medial/../media/devops-build-outputs-04.png 'Registered dataset details in Azure Machine Learning studio')
 
-5. Select **Models** to view a list of registered models that reference the dataset.
+5. **モデル** を選択して、データセットを参照する登録済みモデルのリストを表示します。
 
     ![A list of registered models that reference the selected dataset is displayed.](media/devops-build-outputs-05.png 'Registered dataset model references in Azure Machine Learning studio')
 
-6. Log in to the [Azure Portal](https://portal.azure.com), open your **Resource Group, Workspace, Images** section, and observe the deployment image created during the build pipeline: `compliance-classifier-image`.
+6. [Azure ポータル](https://portal.azure.com) にログインし、**リソースグループ→ワークスペース→イメージ** セクションを開いて、ビルドパイプライン中に作成されたデプロイメントイメージ `compliance-classifier-image` を確認します。
 
     ![In the Images resource page, Images is selected from the left menu, and a list of Images is displayed. Multiple compliance-classifier-image images are shown with their associated versions. The latest version image is highlighted in the table.](media/devops-build-outputs-06.png 'Images in Azure Portal')
 
-## Exercise 5: Setup the Release Pipeline
+## 演習 5: リリースパイプラインを設定する
 
-Duration: 20 minutes
+所要時間: 20分
 
-### Task 1: Create an Empty Job
+### タスク 1: 空のジョブを作成する
 
-1. Return to Azure DevOps and navigate to **Pipelines, Releases** and select **New pipeline**.
-
+1. Azure DevOps に戻り、**パイプライン、リリース** に移動して **新しいパイプライン** を選択します。
+ 
     ![In Azure DevOps, the Pipelines item is expanded in the left menu with the Releases item selected. In the content pane, a message indicates No release pipelines found and the New pipeline button is selected.](media/devops-release-pipeline-01.png 'New Release Pipeline')
 
-2. Select **Empty job**.
+2. **空のジョブ** を選択します。
 
     ![In the Select a template dialog, the Empty job item is selected above the list featured templates.](media/devops-release-pipeline-02.png 'Select a template: Empty job')
 
-3. Provide Stage name: `Deploy and Test` and close the dialog.
+3. ステージ名: `Deploy and Test` を指定して、ダイアログを閉じます。
 
     ![On the Stage dialog, the Stage name textbox is populated with Deploy and Test. The close button at the top of the dialog is selected.](media/devops-release-pipeline-03.png 'Deploy and Test Stage')
 
-### Task 2: Add Build Artifact
+### タスク 2: ビルド作成物を追加
 
-1. Select **+ Add an artifact**.
+1. **+ Add an artifact** を選択します。
 
     ![In the New release pipeline screen, on the Pipeline tab, the + Add a new artifact item is selected within the Artifacts tile.](media/devops-release-pipeline-04.png 'Add an artifact')
 
-2. Select **Source type**: **Build**, **Source (build pipeline)**: **mlops-quickstart**.
+2. **ソースタイプ**: **Build**, **ソース (build pipeline)**: **mlops-quickstart** を選択します。
 
-    > **Note**: Observe the note that shows that the mlops-quickstart publishes the build artifact named devops-for-ai.
+    > **Note**: mlops-quickstart が devops-for-ai という名前のビルド作成物を公開することを示すメモを確認してください。
 
-    Finally, select **Add**.
+    最後に、**Add** を選択します。
 
     ![The Add an artifact dialog form is populated with the aforementioned values. The Add button is selected.](media/devops-release-pipeline-05.png 'Add a build artifact')
 
-### Task 3: Add Variables to Deploy and Test stage
+### タスク 3: Deploy and Test ステージに変数を追加する
 
-1. Open **View stage tasks** link.
+1. **View stage tasks** リンクを開きます。
 
-    ![On the New release pipeline screen, within the Deploy and Test tile, the View stage tasks link is selected.](media/devops-release-pipeline-06.png 'View Stage Tasks')
+    ![On the New release pipeline screen, within the Deploy and Test tile, the View stage tasks link is selected.](media/devops-release-pipeline-06.png 'View Stage タスクs')
 
-2. Open the **Variables** tab.
+2. **Variables** タブを開きます。
 
     ![On the New release pipeline screen, the Variables tab is selected.](media/devops-release-pipeline-07.png 'Release Pipeline Variables')
 
-3. Add four Pipeline variables as name - value pairs and then select **Save** (use the default values in the **Save** dialog):
+3. 4つのパイプライン変数を名前と値のペアとして追加し、**保存** を選択します（**保存** ダイアログのデフォルト値を使用します）：
 
     a. **Name**: `aks_name` **Value**: `aks-cluster01`
 
@@ -463,64 +463,64 @@ Duration: 20 minutes
 
     d. **Name**: `description` **Value**: `"Compliance Classifier Web Service"`
 
-    > **Note**: Include the double quotes around the **description** value!
+    > **Note**: **description** の値をダブルクォーテーションで囲みます。
     
 
     > **Note**:
-    >   - Keep the scope for the variables to the **Deploy and Test** stage.
-    >   - The name of the Azure region should be the same one that was used to create Azure Machine Learning workspace earlier on.
+    >   - 変数のスコープを **Deploy and Test** ステージに維持します。
+    >   -Azure リージョンの名前は、以前に Azure Machine Learning ワークスペースを作成するために使用されたものと同じである必要があります。
 
       ![On the New release pipeline screen, the Variables tab is selected, and the Pipeline variables item is selected from a list of variable types. The list of Pipeline variables is displayed showing the variables that were just created.](media/devops-release-pipeline-08.png 'Add Pipeline Variables')
 
-### Task 4: Setup Agent Pool for Deploy and Test stage
+### タスク 4: Deploy and Test ステージのエージェントプールのセットアップ
 
-1. Open the **Tasks** tab.
+1. **Tasks** タブを開きます。
 
     ![On the New release pipeline screen, the Tasks tab is selected.](media/devops-release-pipeline-09.png 'Pipeline Tasks')
 
-2. Select **Agent job** and set **Agent pool** to `Azure Pipelines` and change **Agent Specification** to `ubuntu-16.04`.
+2. **エージェントジョブ** を選択し、**エージェントプール** を `Azure Pipelines` に設定し、**エージェント仕様** を `ubuntu-16.04` に変更します。
 
     ![On the New release pipeline screen, Tasks tab, the Agent job is selected. The Agent job details form is populated with the aforementioned values.](media/devops-release-pipeline-10.png 'Agent Job Setup')
 
-### Task 5: Add Use Python Version task
+### タスク 5: Python バージョンの使用タスクの追加
 
-1. Select **Add a task to Agent job** (the **+** button), search for `Use Python Version`, and select **Add**.
+1. **タスクをエージェントジョブに追加**（[**+**] ボタン）を選択し、`Use Python Version` を検索して、**追加** を選択します。
 
     ![On the New release pipeline screen, the Tasks tab is selected. Agent job is displayed in the list of tasks. The + button is selected in the Agent job tile. The Add tasks pane is displayed with Use Python version entered in the search box, and the Use Python version search result is highlighted with its Add button selected.](media/devops-release-pipeline-11.png 'Add Use Python Version Task')
 
-2. Provide **Display name:** `Use Python 3.6` and **Version spec:** `3.6`
+2. **表示名：** `Use Python 3.6` と **Version spec：** ` 3.6` を入力します。
 
     ![The Use Python version form is displayed populated with the preceding values.](media/devops-release-pipeline-12.png 'Use Python Version Task Dialog')
 
-### Task 6: Add Install Requirements task
+### タスク 6: インストール要件タスクの追加
 
-1. Select **Add a task to Agent job** (the **+** button), search for `Bash`, and select **Add**.
+1. **タスクをエージェントジョブに追加**（[**+**] ボタン）を選択し、 `Bash` を検索して、**追加** を選択します。
 
     ![On the New release pipeline screen, the Tasks tab is selected. A list of tasks includes the Agent job that has a Use Python 3.6 task. The + button is selected in the Agent job tile, and in the Add tasks form, Bash is entered into the search text box and the Bash item is highlighted in a list of search results with its Add button selected.](media/devops-release-pipeline-13.png 'Add Bash Task')
 
-2. Provide **Display name:** `Install Requirements` and select **Browse script path ...** to provide **Script Path**.
+2. **表示名：** `Install Requirements` を入力し、**スクリプトパスを参照...** を選択して **スクリプトパス** を入力します。
 
     ![On the New release pipeline screen, the Tasks tab is selected. A list of tasks is displayed below the Agent job. The Install requirements job is selected from this list. In the Bash form, fields are populated with the preceding values.](media/devops-release-pipeline-14.png 'Bash Task Dialog')
 
-3. Navigate to **Linked artifacts/_mlops-quickstart (Build)/devops-for-ai/environment_setup** and select **install_requirements.sh**.
+3. **Linked artifacts/_mlops-quickstart (Build)/devops-for-ai/environment_setup** に移動し、**install_requirements.sh** を選択します。
 
     ![A Select a file or folder dialog is displayed showing the location hierarchy to the install_requirements.sh file. The OK button is selected.](media/devops-release-pipeline-15.png 'Select Path Dialog')
 
-4. Expand **Advanced** and select **Browse working directory ...** to provide **Working Directory**.
+4. **詳細設定** を展開し、**作業ディレクトリを参照...** を選択して、**作業ディレクトリ** を入力します。
 
     ![On the Bash form, the Advanced section is expanded. The ellipsis button is selected next to the Working Directory textbox.](media/devops-release-pipeline-16.png 'Bash Task - Advanced Section')
 
-5. Navigate to **Linked artifacts/_mlops-quickstart (Build)/devops-for-ai** and select **environment_setup**.
+5. **Linked artifacts/_mlops-quickstart (Build)/devops-for-ai** に移動し、**environment_setup** を選択します。
 
     ![In the Select a file or folder dialog, the location hierarchy is displayed to the environment_setup folder.](media/devops-release-pipeline-17.png 'Select Path Dialog')
 
-### Task 7: Add Deploy and Test Webservice task
+### タスク 7: Webサービスの展開とテストタスクの追加
 
-1. Select **Add a task to Agent job** (the **+** button), search for `Azure CLI`, and select **Add**.
+1. **タスクをエージェントジョブに追加** (**+** ボタン)を選択し、`Azure CLI` を検索して、**追加**を選択します。
 
     ![In the New release pipeline screen, the Tasks tab is selected. In the list of Tasks, in the Agent job tile, the + button is selected. In the Add tasks form, Azure CLI is entered into the search box, and the Azure CLI search result is highlighted with its Add button selected.](media/devops-release-pipeline-18.png 'Azure CLI Task')
 
-2. Provide the following information for the Azure CLI task:
+2. Azure CLI タスクに関する次の情報を提供します。
 
     a. **Task version**: `1.*`
 
@@ -528,7 +528,7 @@ Duration: 20 minutes
 
     c. **Azure subscription**: `quick-starts-sc`
 
-    > **Note**: This is the service connection we created in Exercise 1 / Task 4.
+    > **Note**: これは、演習1のタスク4で作成したサービス接続です。
 
     d. **Script Location**: `Inline script`
 
@@ -536,202 +536,203 @@ Duration: 20 minutes
 
     ![On the Tasks tab of the New release pipeline screen, the Deploy and Test Webservice task is selected beneath the Agent job item. The Azure CLI form is populated with the preceding values.](media/devops-release-pipeline-19.png 'Azure CLI Task Dialog')
 
-3. Expand **Advanced** and provide **Working Directory:** `$(System.DefaultWorkingDirectory)/_mlops-quickstart/devops-for-ai`.
+3. **Advanced** を展開し、**Working Directory:** に `$(System.DefaultWorkingDirectory)/_mlops-quickstart/devops-for-ai` と入力します。
 
     ![In the Azure CLI form, the Advanced section is expanded and the Working Directory field is populated with the specified value.](media/devops-release-pipeline-20.png 'Azure CLI Task - Working Directory')
 
-> **Note**: Please review the code in `aml_service/deploy.py`. By using the `eval_info.json` file that is associated with each trained model, this script can determine if the new trained model's performance is better than the currently deployed model. If it determines the new model has better performance, it will deploy the new model to production in an **Azure Kubernetes Service (AKS)** cluster.
+> **Note**: `aml_service/deploy.py`のコードを確認してください。このスクリプトは、各トレーニング済みモデルに関連付けられている `eval_info.json` ファイルを使用することにより、新しいトレーニング済みモデルのパフォーマンスが現在デプロイされているモデルよりも優れているかどうかを判断できます。新しいモデルの方がパフォーマンスが優れていると判断した場合、**Azure Kubernetes Service(AKS)** クラスターの本番環境に新しいモデルをデプロイします。
 
-### Task 8: Define Deployment Trigger
+### タスク 8: デプロイトリガーの定義
 
-1. Navigate to **Pipeline** tab, and select **Pre-deployment conditions** for the **Deploy and Test** stage.
+1. **Pipeline** タブに移動し、**Deploy and Test** ステージの **Pre-deployment conditions** を選択します。
 
-2. Select **After release**.
+2. **After release** を選択します。
 
     ![In the New release pipeline screen, the Pipelines tab is selected. Within the Stages tile, the Pre-deployment Condition item is selected in the Deploy and Test stage tile. The Pre-deployment conditions form is displayed with the Triggers section expanded. After release is selected as the trigger.](media/devops-release-pipeline-21.png 'Pre-deployment Conditions Dialog')
 
-3. Close the dialog.
+3. ダイアログを閉じます。
 
-### Task 9: Enable Continuous Deployment Trigger
+### タスク 9: 継続的デプロイトリガーを有効にする
 
-1. Select **Continuous deployment trigger** for `_mlops-quickstart` artifact.
+1. `_mlops-quickstart` 作成物の、**Continuous deployment trigger** を選択します。
 
-2. Enable: **Creates a release every time a new build is available**.
+2. **「新しいビルドが利用可能になるたびにリリースを作成します」** を有効にします。
 
     ![In the New release pipeline screen, the Pipelines tab is selected. Within the Artifacts tile, the Continuous deployment trigger option is selected on the _mlops-quickstart tile. The Continuous deployment trigger form is displayed indicating that it is Enabled.](media/devops-release-pipeline-22.png 'Continuous Deployment Trigger Dialog')
 
-3. Close the dialog.
+3. ダイアログを閉じます。
 
-### Task 10: Save the Release Pipeline
+### タスク 10: リリースパイプラインを保存する
 
-1. Provide name: `mlops-quickstart-release`.
+1. パイプラインの名前として、`mlops-quickstart-release` 入力します。
 
-2. Select **Save** (use the default values in the **Save** dialog).
+2. **Save** を選択します。(**保存** ダイアログのデフォルト値を使用します).
 
     ![In the header of the New pipeline screen, the pipeline name is set to mlops-quickstart-release, and the Save button is selected from the top taskbar.](media/devops-release-pipeline-23.png 'Save')
 
-## Exercise 6: Test Build and Release Pipelines
+## 演習 6: テストビルドおよびリリースパイプライン
 
-Duration: 30 minutes
+所要時間: 30分
 
-### Task 1: Make Edits to Source Code
+### タスク 1: ソースコードを編集する
 
-1. Navigate to: **Repos -> Files -> scripts -> `train.py`**.
+1. **Repos -> Files -> scripts -> `train.py`** に移動します。
 
-2. **Edit** `train.py`.
+2. `train.py` を**編集**します。
 
-3. Change the **learning rate (lr)** for the optimizer from **0.1** to **0.001**.
+3. オプティマイザの **学習率（lr）** を **0.1** から **0.001** に変更します。
 
-4. Change the number of training **epochs** from **3** to **5**.
+4. トレーニング**エポック**の数を **3** から **5** に変更します。
 
-5. Select **Commit**.
+5. **Commit** を選択します。
 
     ![In Azure DevOps, the Repos item is expanded in the left menu with Files selected. In the file list, beneath the expanded scripts folder, train.py is selected. The train.py contents is displayed with the source code changes indicated in the previous steps in place. The Commit button is selected in the top toolbar.](media/devops-test-pipelines-01.png 'Edit Train.py')
 
-6. Provide comment: `Improving model performance: changed learning rate.` and select **Commit**.
+6. コメントに、`Improving model performance: changed learning rate.` と入力し、**Commit** します。
 
     ![On the Commit dialog, the comment above is entered and the Commit button is selected.](media/devops-test-pipelines-02.png 'Commit - Comment')
 
-### Task 2: Monitor Build Pipeline
+### タスク 2: ビルドパイプラインの監視
 
-1. Navigate to **Pipelines, Pipelines**. Observe that the CI build is triggered because of the source code change.
+1. **Pipelines→Pipelines** へ移動します。ソースコードの変更により、CI ビルドがトリガーされることを確認します。
 
    ![In Azure DevOps, Pipelines is selected below the Pipeline item in the left menu. In the Pipelines list, the Recent tab is selected. A currently running pipeline is shown and selected in this list.](media/devops-test-pipelines-03.png 'Pipelines - pipelines')
 
-2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 18-25 minutes. Proceed to the next task when the build pipeline successfully completes.
+2. パイプライン実行を選択し、パイプラインステップを監視します。パイプラインは 18〜25 分間実行されます。ビルドパイプラインが正常に完了したら、次のタスクに進みます。
 
    ![In the Job details screen, the progress of the pipeline run is shown. Every step shows success.](media/devops-test-pipelines-04.png 'Build Pipeline Steps')
 
-### Task 3: Monitor Release Pipeline
+### タスク 3: リリースパイプラインの監視
 
-1. Navigate to **Pipelines, Releases**. Observe that the Release pipeline is automatically triggered upon successful completion of the build pipeline. Select as shown in the figure to view pipeline logs.
+1. **Pipelines→Releases** に移動します。ビルドパイプラインが正常に完了すると、リリースパイプラインが自動的にトリガーされることを確認します。図に示すように選択して、パイプラインログを表示します。
 
    ![In Azure DevOps, on the left menu, Pipelines is expanded and the Releases item is selected. The ml-ops-quickstart-release screen is displayed with the Releases tab selected. A release named Release-1 is highlighted with a button in the Stage column that is used to view the pipeline logs.](media/devops-test-pipelines-05.png 'Pipelines - Releases')
 
-2. The release pipeline will run for about 15 minutes. Proceed to the next task when the release pipeline successfully completes.
+2. リリースパイプラインは約 15 分間実行されます。リリースパイプラインが正常に完了したら、次のタスクに進みます。
 
-### Task 4: Review Release Pipeline Outputs
+### タスク 4: リリースパイプライン出力の確認
 
-1. From the pipeline logs view, select **Deploy and Test Webservice** task to view details.
+1. パイプラインログビューから、**Deploy and Test Webservice** タスクを選択して詳細を表示します。
 
     ![In the Release-1, Deploy and Test Stage results, A list of tasks related to Agent job is displayed. The Deploy and Test Webservice task is selected from the list.](media/devops-test-pipelines-06.png 'Pipeline Logs')
 
-2. Observe the **Scoring URI** and **API Key** for the deployed webservice. Please note down both the **Scoring URI** and **API Key** for **Exercise 8**.
+2. デプロイされたWebサービスの**スコアリング URI** と **API キー**を確認します。**演習8** の**スコアリング URI** と **API キー**の両方を書き留めてください。
 
     ![The Deploy and Test Webservice task logs are displayed. Within the logs the Webservice URI and Webservice API Key are highlighted.](media/devops-test-pipelines-07.png 'Deploy and Test Webservice Task Logs')
 
-3. Log in to Azure Machine Learning studio. Open your **Endpoints** section, and observe the deployed webservice: **compliance-classifier-service**.
+3. Azure Machine Learning Studio にログインします。 **Endpoints** セクションを開き、デプロイされたWebサービスを確認します。
+**compliance-classifier-service**
 
     ![In Azure Machine Learning Studio, the Endpoints item is selected from the left menu. In the list of Endpoints, the compliance-classifier-service is selected.](media/devops-test-pipelines-08.png 'Azure Machine Learning studio - Workspace, Deployments')
 
-## Exercise 7: Testing the deployed solution
+## 演習 7: デプロイされたソリューションのテスト
 
-Duration: 15 minutes
+所要時間: 15分
 
-In this exercise, you verify that the first release of the application works.
+この演習では、アプリケーションの最初のリリースが機能することを確認します。
 
-### Task 1: Test the Deployment
+### タスク 1: デプロイをテストする
 
-1. Download the [**Test Deployment.ipynb**](./notebooks/Test&#32;Deployment.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this exercise.
+1. [**Test Deployment.ipynb**](./notebooks/Test&#32;Deployment.ipynb) ノートブックをあなたのローカルコンピューターにダウンロードします。GitHub で**Raw** ビューを選択し、**右クリック+名前を付けて保存**します。保存したファイルの拡張子が `.ipynb` であることを確認してください。これは、この演習で実行するステップバイノートブックです。
 
-2. In the Azure Machine Learning Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
+2. Azure Machine Learning Studio で、**ノートブック**に移動し、上部のメニューで**ファイルのアップロード**オプションを選択します。
 
-3. Browse your local computer for the downloaded notebook, **Test Deployment.ipynb** and then select **MCW-MLOps** folder as the target folder. Select **Upload**.
+3. ローカルコンピューターを参照してダウンロードしたノートブック **Test Deployment.ipynb** を探し、ターゲットフォルダーとして **MCW-MLOps** フォルダーを選択します。次に、**アップロード**を選択します。
 
-4. On the top bar, select the **mlops-compute** compute instance to use to run the notebook. Select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
+4. 上部のバーで、ノートブックの実行に使用する **mlops-compute** コンピューティングインスタンスを選択します。**編集**ドロップダウンを選択し、**Jupyterで編集**を選択します。新しいブラウザウィンドウが開きます。
 
-5. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
+5. ノートブックにデプロイされた Web サービスの**スコアリング URI** および **API キー**の値を提供する必要があることに注意してください。
 
-6. Follow the instructions within the notebook to complete the task.
+6. ノートブック内の指示に従って、タスクを完了します。
 
-## Exercise 8: Examining deployed model performance
+## 演習 8: デプロイされたモデルのパフォーマンスを検証する
 
-Duration: 15 minutes
+所要時間: 15分
 
-In this exercise, you learn how to monitor the performance of a deployed model.
+この演習では、デプロイされたモデルのパフォーマンスを監視する方法を学びます。
 
-### Task 1: Activate App Insights and data collection on the deployed model
+### タスク 1: デプロイされたモデルで App Insights とデータ収集をアクティブ化する
 
-1. Download the [**Model Telemetry.ipynb**](./notebooks/Model&#32;Telemetry.ipynb) notebook to your computer, by selecting the **Raw** view in GitHub, and then **right-click + Save as**. Please ensure that the extension of the saved file is `.ipynb`. This is the notebook you will step through executing in this exercise.
+1. [**Model Telemetry.ipynb**](./notebooks/Model&#32;Telemetry.ipynb) ノートブックをあなたのローカルコンピューターにダウンロードします。GitHub で**Raw** ビューを選択し、**右クリック+名前を付けて保存**します。保存したファイルの拡張子が `.ipynb` であることを確認してください。これは、この演習で実行するステップバイノートブックです。
 
-2. In the Azure Machine Learning Studio, navigate to **Notebooks**, and select **Upload files** option in the top menu.
+2. Azure Machine Learning Studio で、**ノートブック**に移動し、上部のメニューで**ファイルのアップロード**オプションを選択します。
 
-3. Browse your local computer for the downloaded notebook, **Model Telemetry.ipynb** and then select **MCW-MLOps** folder as the target folder. Select **Upload**.
+3. ローカルコンピューターを参照して、ダウンロードしたノートブック **Model Telemetry.ipynb** を探し、ターゲットフォルダーとして **MCW-MLOps** フォルダーを選択します。次に、**アップロード** を選択します。
 
-4. On the top bar, select the **mlops-compute** compute instance to use to run the notebook. Select the **Edit** drop down, and then select **Edit in Jupyter**. The new browser window will be opened.
+4. 上部のバーで、ノートブックの実行に使用する **mlops-compute** コンピューティングインスタンスを選択します。**編集**ドロップダウンを選択し、**Jupyterで編集**を選択します。新しいブラウザウィンドウが開きます。
 
-5. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
+5. ノートブック内の指示に従って、タスクを完了します。完了すると、デプロイされたモデルの [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) 統合とデータ収集の両方がアクティブ化されます。
 
-6. Note that if there are errors (for example, **Too many requests for service compliance-classifier-service (overloaded)** or **No ready replicas for service compliance-classifier-service.**) when you make calls against the deployed web service after your enable app insights (last cell in the **Model Telemetry** notebook), you should wait for 5 minutes and rerun the cell to make the calls.
+6. エラーが発生した場合（たとえば、**サービスへのコンプライアンス分類サービスへの要求が多すぎる（オーバーロードされている）**または**サービスコンプライアンス分類サービスの準備ができたレプリカはありません。**）場合、App Insights を有効にした後でデプロイした Web サービス（**Model Telemetry** ノートブックの最後のセル）では、5 分待ってから、セルを再実行して呼び出しを行う必要があります。
 
-### Task 2: Check Application Insights telemetry
+### タスク 2: Application Insights のテレメトリを確認する
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+1. [Azure portal](https://portal.azure.com) に移動し、このラボ用に作成したリソースグループ（Azure Machine Learningサービスワークスペースが作成されたグループ）を見つけます。
 
-2. Locate the Application Insights instance in the resource group and select it.
+2. リソースグループで Application Insights インスタンスを見つけて選択します。
 
     ![The Application Insights resource is selected in the resource group.](media/model-telemetry-01.png 'Resource Group Overview')
 
-3. Go to **Overview**.
+3. **Overview** に移動します。
 
-4. From the top row of the right section, select **Logs**. This will open the Application Insights query editor with an empty new query. Dismiss the **Example queries** popup if displayed.
+4. 右側のセクションの一番上の行から、**ログ**を選択します。空の新しいクエリで Application Insights クエリエディターが開きます。表示されている場合は、**クエリ例**ポップアップを閉じます。
 
     ![On the Application Insights resource screen, the Overview item is selected in the left menu, and the Logs item is selected from the top toolbar.](media/model-telemetry-02.png 'Application Insights - Dashboard')
 
-5. In the left pane, make sure the **Tables** tab is selected.
+5. 左側のペインで、**Tables** タブが選択されていることを確認します。
 
-6. Hover over **requests** and select the icon on the right side - "Show sample records from this table". Next, select **Run**.
+6. **リクエスト**にカーソルを合わせ、右側のアイコン「このテーブルのサンプルレコードを表示」を選択します。 次に、**実行**を選択します。
 
     ![On the Application Insights Logs screen, a New Query tab is shown with the Tables tab selected. The icon next to the requests table is selected.](media/model-telemetry-03.png 'Create Requests Query')
 
-7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute. Call your model wait a minute and select **Run** to re-execute the Application Insights query.
+7. 表示された結果を見てください。Application Insights は、モデルに対して行われたすべての要求をトレースしています。テレメトリ情報が反映されるまでに数分かかることがあります。結果が表示されない場合は、しばらくお待ちください。モデルを呼び出して 1 分待機し、**実行**を選択してApplication Insights クエリを再実行します。
 
    ![On the Application Insights Logs screen, a query is run against the requests table and a list of results is displayed.](media/model-telemetry-04.png 'Requests Query Results')
 
-> **Note**: If you do not see telemetry information after selecting **Run** to re-execute the Application insights query. Please rerun the last cell in the **Model Telemetry** notebook a few more times to generate more data. Then select **Run** on this page to re-execute the Application insights query.
+> **Note**: **実行**を選択して Application Insights クエリを再実行した後、テレメトリ情報が表示されない場合。**Model Telemetry** ノートブックの最後のセルをさらに数回再実行して、より多くのデータを生成してください。次に、このページで**実行**を選択して、Application Insights クエリを再実行します。
 
-### Task 3: Check the data collected
+### タスク 3: 収集したデータを確認する
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+1. [Azure portal](https://portal.azure.com) に移動し、このラボ用に作成したリソースグループ（Azure Machine Learningサービスワークスペースが作成されたグループ）を見つけます。
 
-2. Locate the Storage Account instance in the resource group and select it.
+2. リソースグループでストレージアカウントインスタンスを見つけて選択します。
 
     ![The Storage account resource is selected in the resource group.](media/model-telemetry-05.png 'Resource Group Overview')
 
-3. Go to **Storage Explorer (preview)**.
+3. **Storage Explorer (preview)** に移動します。
 
-4. Expand the **BLOB CONTAINERS** section and identify the **modeldata** container. Select **More->Refresh** if you do not see **modeldata** container.
+4. **BLOB CONTAINERS** セクションを展開し、**modeldata** コンテナーを特定します。**modeldata** コンテナが表示されない場合は、**More-> Refresh** を選択します。
 
     ![In the Storage Explorer screen, the BLOB CONTAINERS item is expanded with the modeldata item selected.](media/model-telemetry-06.png 'Storage Explorer')
 
-5. Identify the CSV files containing the collected data. The path to the output blobs is based on the following structure:
+5. 収集したデータを含むCSVファイルを特定します。出力 blob へのパスは、次の構造に基づいています。
 
     **modeldata -> subscriptionid -> resourcegroup -> workspace -> webservice -> model -> version -> identifier -> year -> month -> day -> inputs.csv**
 
     ![In the Storage Explorer, the modeldata container is selected beneath BLOB containers. The inputs.csv file is selected in the list of files at the path specified above.](media/model-telemetry-07.png 'Storage Explorer - inputs.csv')
 
-## After the hands-on lab
+## ハンズオンラボの後
 
-Duration: 5 minutes
+所要時間: 5分
 
-To avoid unexpected charges, it is recommended that you clean up all of your lab resources when you complete the lab.
+予期しない請求を回避するために、ラボの完了時にすべてのラボリソースをクリーンアップすることをお勧めします。.
 
-### Task 1: Clean up lab resources
+### タスク 1: ラボのリソースをクリーンアップする
 
-1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+1. Azure Portal に移動し、このラボ用に作成したリソースグループ（Azure Machine Learningサービスワークスペースが作成されたグループ）を見つけます。
 
-2. Select **Delete resource group** from the command bar.
+2. コマンドバーから **リソースグループの削除** を選択します。
 
     ![Screenshot of the Delete resource group button.](media/cleanup-01.png 'Delete resource group button')
 
-3. In the confirmation dialog that appears, enter the name of the resource group and select **Delete**.
+3. 表示される確認ダイアログで、リソースグループの名前を入力し、**削除**を選択します。
 
-4. Wait for the confirmation that the Resource Group has been successfully deleted. If you don't wait, and the delete fails for some reason, you may be left with resources running that were not expected. You can monitor using the Notifications dialog, which is accessible from the Alarm icon.
+4. リソースグループが正常に削除されたことの確認を待ちます。待たずに、何らかの理由で削除が失敗した場合、予期しないリソースが実行されたままになる可能性があります。アラームアイコンからアクセスできる通知ダイアログを使用して監視できます。
 
     ![The Notifications dialog box has a message stating that the resource group is being deleted.](media/cleanup-02.png 'Delete Resource Group Notification Dialog')
 
-5. When the Notification indicates success, the cleanup is complete.
+5. 通知が成功を示したら、クリーンアップは完了です。
 
     ![The Notifications dialog box has a message stating that the resource group has been deleted.](media/cleanup-03.png 'Delete Resource Group Notification Dialog')
 
-You should follow all steps provided _after_ attending the Hands-on lab.
+ハンズオンラボに参加した後は、提供されたすべての手順に従ってください。
