@@ -1,39 +1,39 @@
 # MLOps
 
-Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automation, to providing cutting edge approaches that generate new opportunities. Trey Research has decades specializing in data science and application development that until now were separate units. They would like to unlock the greater, long term value by combining the two units into one, and follow one standardized process for operationalizing their innovations.
+Trey Research Inc. は、製造業向けに革新的なソリューションを提供しています。彼らは、自動化から新たな機会を生み出す最先端のアプローチの提供まで、メーカーの問題を特定し、解決することを専門としています。Trey Research 社は、データサイエンスとアプリケーション開発に何十年も特化してきました。彼らは、2つのユニットを1つにまとめることで、より大きな長期的な価値を解き放ち、イノベーションを運用するための標準化されたプロセスに従いたいと考えています。
 
-For this first proof of concept (PoC), Trey Research Inc. are looking to leverage Deep Learning technologies with Natural Language Processing (NLP) techniques to scan through vehicle component descriptions to find compliance issues with new regulations. The component descriptions are managed via a web application, and the web application takes the description and labels the component as compliant or non-compliant using the trained model. As part of this PoC, they want to ensure the overall process they create enables them to update both the underlying machine learning model and the web app in one, unified pipeline. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues.
+この最初の概念実証（PoC）では、Trey Research Inc. は、ディープラーニング技術と自然言語処理（NLP）技術を活用して、車両の部品の説明をスキャンして、新しい規制へのコンプライアンスの問題点を見つけようとしています。部品の記述はウェブアプリケーションで管理されており、Web アプリケーションは記述を取り込み、訓練されたモデルを使用して部品を適合または非適合としてラベル付けする。この PoC の一環として、同社は、作成した全体的なプロセスで、基礎となる機械学習モデルと Web アプリケーションの両方を1つの統一されたパイプラインで更新できるようにしたいと考えています。また、デプロイ後にモデルのパフォーマンスを監視できるようにして、パフォーマンスの問題に積極的に対応できるようにしたいと考えています。
 
-June 2020
+2020年6月
 
-## Target audience
+## 対象者
 
-- Data Scientists
-- App Developers
-- AI Engineers
-- DevOps Engineers
+- データサイエンティスト
+- アプリ開発者
+- AI エンジニア
+- DevOps エンジニア
 
-## Abstracts
+## 要約
 
-### Workshop
+### ワークショップ
 
-In this workshop, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations, and manage the classification through their web application. The entire process from model creation, application packaging, model deployment and application deployment needs to occur as one unified repeatable, pipeline.
+このワークショップでは、Trey Research 社がディープラーニング技術を活用して、車両仕様書をスキャンして新しい規制のコンプライアンス問題を見つけ出し、Web アプリケーションで分類を管理する方法を学びます。モデルの作成からアプリケーションのパッケージング、モデルのデプロイ、アプリケーションのデプロイまでのプロセス全体が、1つの統一された繰り返し可能なパイプラインとして行われる必要があります。
 
-At the end of this workshop, you will be better able to design and implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
+このワークショップの最後には、モデルに依存するすべてのアプリケーションコンポーネントを含めて、ディープラーニングモデルを完全に運用するエンドツーエンドソリューションを設計・実装できるようになります。
 
-### Whiteboard design session
+### ホワイトボードデザインセッション
 
-In this whiteboard design session, you will work in a group to design a process Trey Research can follow for orchestrating and deploying updates to the application and the deep learning model in a unified way. You will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments and most importantly improves inferencing speed over the native model. You will design a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. You will also learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues.
+このホワイトボードデザインセッションでは、グループに分かれて、Trey Research 社がアプリケーションとディープラーニングモデルのアップデートを統合的な方法でオーケストレーションし、展開するためのプロセスをデザインします。Trey Research 社がディープラーニング技術を活用して、車両の仕様書をスキャンして、新しい規制へのコンプライアンスの問題を見つける方法を学びます。モデルフォーマットを ONNX に標準化し、これにより推論実行時のコードが簡素化され、さまざまなモデルのプラグインが可能になり、幅広い実行時環境をターゲットにすることが可能になり、最も重要なことは、ネイティブモデルよりも推論速度が向上することを観察します。モデルレジストリから最新のベストモデルを取得し、Web アプリケーションをパッケージングし、Web アプリケーションをデプロイし、推論 Web サービスを調整するための DevOps パイプラインを設計します。また、デプロイ後にモデルのパフォーマンスを監視する方法を学び、Trey Research 社がパフォーマンスの問題に積極的に対応できるようにします。
 
-At the end of this whiteboard design session, you will be better able to design end-to-end solutions that will fully operationalize deep learning models, inclusive of all application components that depend on the model.
+このホワイトボードデザインセッションの最後には、モデルに依存するすべてのアプリケーションコンポーネントを含めて、ディープラーニングモデルを完全に運用するエンドツーエンドソリューションを設計できるようになります。
 
-### Hands-on lab
+### ハンズオンラボ
 
-In this hands-on lab, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments and most importantly, improves inferencing speed over the native model. You will build a DevOps pipeline to coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. After a first successful deployment, you will make updates to both the model, the and web application, and execute the pipeline once to achieve an updated deployment. You will also learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues.
+このハンズオンラボでは、Trey Research 社がディープラーニング技術を活用して車両仕様書をスキャンし、新しい規制へのコンプライアンス問題を見つける方法を学びます。モデルフォーマットを ONNX に標準化し、これにより推論実行時のコードが簡素化され、さまざまなモデルのプラグインが可能になり、幅広い実行時環境をターゲットにすることが可能になり、最も重要なことは、ネイティブモデルよりも推論速度が向上することを観察します。モデルレジストリから最新のベストモデルを取得し、Web アプリケーションをパッケージングし、Web アプリケーションをデプロイし、推論 Web サービスを調整するための DevOps パイプラインを構築します。最初のデプロイが成功した後、モデル、Web アプリケーション、Web アプリケーションの両方に更新を行い、更新されたデプロイを達成するためにパイプラインを一度実行します。また、デプロイ後にモデルのパフォーマンスを監視する方法も学習しますので、Trey Research 社はパフォーマンスの問題に積極的に対応できます。
 
-At the end of this hands-on lab, you will be better able to implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
+このハンズオンラボの最後には、モデルに依存するすべてのアプリケーションコンポーネントを含む、ディープラーニングモデルを完全に運用するエンドツーエンドのソリューションを実装できるようになります。
 
-## Azure services and related products
+## Azure サービスと関連製品
 
 - Azure Container Instances
 - Azure DevOps
@@ -42,20 +42,20 @@ At the end of this hands-on lab, you will be better able to implement end-to-end
 - ML Ops
 - ONNX
   
-## Related references
+## 関連資料
 
 - [MCW](https://github.com/Microsoft/MCW)
 
-## Help & Support
+## ヘルプとサポート
 
-We welcome feedback and comments from Microsoft SMEs & learning partners who deliver MCWs.  
+MCW を提供する Microsoft SME およびラーニングパートナーからのフィードバックとコメントを歓迎します。
 
-***Having trouble?***
+***問題が起きた場合***
 
-- First, verify you have followed all written lab instructions (including the Before the Hands-on lab document).
-- Next, submit an issue with a detailed description of the problem.
-- Do not submit pull requests. Our content authors will make all changes and submit pull requests for approval.
+- 最初に、書面によるすべてのラボの指示（Before the Hands-on lab ドキュメントを含む）に従っていることを確認します。
+- 次に、問題の詳細な説明とともに問題を送信します。
+- プルリクエストを送信しないでください。コンテンツ作成者はすべての変更を行い、プルリクエストを送信して承認を得ます。
 
-If you are planning to present a workshop, *review and test the materials early*! We recommend at least two weeks prior.
+ワークショップを予定している場合は、*早めに資料を確認してテストしてください*！ 少なくとも2週間前にお勧めします。
 
-**Please allow 5 - 10 business days for review and resolution of issues.**
+**問題の確認と解決には 5〜10 営業日かかります。**
